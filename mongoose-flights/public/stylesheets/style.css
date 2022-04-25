@@ -4,10 +4,19 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+
 }
 
 nav {
   background-color: black;
+  /* display: block; */
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
   color: white;
+
+  height: 3vh;
 }

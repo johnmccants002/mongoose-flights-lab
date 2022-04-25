@@ -8,7 +8,7 @@ function newFlight(req, res) {
 function create(req, res) {
     console.log(req.body)
     const flight = new Flight(req.body);
-    
+
 // Format the date for the value attribute of the input
 
     if (req.body.airport === undefined) {
