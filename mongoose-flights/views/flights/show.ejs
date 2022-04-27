@@ -12,7 +12,7 @@
     <div>Destinations:</div>
     <ul>
       <%- flight.destinations.map(p => 
-        `<li>${p.airport} <small>${p.arrival.toLocaleDateString()}</small></li>`
+        `<li>${p.airport} <small>${p.arrival}</small></li>`
       ).join('') %>
     </ul>
 
@@ -30,6 +30,36 @@
   <input type="date" name="arrival">
   <input type="submit" value="Add Destination">
   </section>
+<br>
+  <a id="tickets" href="/flights/<%= flight._id %>/tickets/new"> Buy Tickets</a>
+
+
+
+  <% if (tickets.length) { %>
+    <h2>Tickets</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Seat</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% tickets.forEach(function(r) { %>
+          <tr>
+            <td><%= r.seat %></td>
+            <td><%= r.price %></td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Tickets Yet</h5>
+  <% } %>
 
 
 

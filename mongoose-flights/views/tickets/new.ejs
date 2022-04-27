@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav><a href="/flights">View All Flights</a><a href="/flights/new">Add Flight</a></nav>
-    <form id="add-ticket-form" action="/flights/<%= id %>/tickets/new" method="POST">
-        <label>Seat:</label>
-        <input name="seat" required pattern="[A-F][1-9]\d?">
-        <label>Price:</label>
-        <input type="number" name="price">
-        <input type="submit" value="Add Ticket">
-      </form>
-</body>
-</html>
+<%- include('../partials/header') %>
+<div>Airline: </div>
+<div><%= flight.airline %></div>
+<div>Airport: </div>
+<div><%= flight.aiport %></div>
+<div>Flight Number: </div>
+<div><%= flight.flightNo %></div>
+<div>Departs: </div>
+<div><%= flight.departs %></div>
+<form id="buy-ticket-form" method="POST"
+action="/flights/<%= flight._id %>/tickets/new">
+    <label>Seat:</label>
+    <input type="text" name="seat" required pattern="[A-F][1-9]\d?" title="Format A thru F , followed by  1 thru 9!" placeholder="A1" >
+    <label>Price:</label>
+    <input type="number" name="price" placeholder="$500">
+    <input type="submit" value="Buy Ticket">
+  </form>
+<%- include('../partials/footer') %>
+
+
+

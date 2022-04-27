@@ -13,7 +13,11 @@ a {
 #details {
   color: blue;
   font-size: 14px;
-  
+}
+
+#tickets {
+  color: green;
+  font-size: 14px;
 }
 
 nav {

@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 const ticketsCtrl = require("../controllers/tickets")
 
-router.get("/", ticketsCtrl.index);
-/* GET users listing. */
-router.get("/new", ticketsCtrl.new);
+// router.get("/", ticketsCtrl.index);
+// /* GET users listing. */
+router.get("/flights/:id/tickets/new", ticketsCtrl.new);
+router.post("/flights/:id/tickets/new", ticketsCtrl.create);
 
-router.post("/", ticketsCtrl.create);
 
 module.exports = router;
