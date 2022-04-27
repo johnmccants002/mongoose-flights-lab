@@ -10,6 +10,12 @@ a {
 
 }
 
+#details {
+  color: blue;
+  font-size: 14px;
+  
+}
+
 nav {
   background-color: black;
   /* display: block; */

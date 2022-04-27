@@ -1,5 +1,35 @@
 <%- include('../partials/header') %>
+<section id="show-page">
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.aiport %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departs: </div>
+    <div><%= flight.departs %></div>
+    <!-- start cast list -->
+    <div>Destinations:</div>
+    <ul>
+      <%- flight.destinations.map(p => 
+        `<li>${p.airport} <small>${p.arrival.toLocaleDateString()}</small></li>`
+      ).join('') %>
+    </ul>
 
+    <div>Add Destination</div>
+    <form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <select name="airport">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <label>Arrival Date:</label>
+  <input type="date" name="arrival">
+  <input type="submit" value="Add Destination">
+  </section>
 
 
 
