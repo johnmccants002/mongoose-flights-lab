@@ -22,20 +22,9 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Movie.findById(req.params.id)
-      .populate('destination').exec(function(err, movie) {
-        // Performer.find({}).where('_id').nin(movie.cast) <-- Mongoose query builder
-        // Native MongoDB approach 
-        Performer.find(
-          {_id: {$nin: flight.destination}},
-          function(err, performers) {
-            console.log(performers);
-            res.render('movies/show', {
-              title: 'Movie Detail', movie, performers
-            });
-          }
-        );
-      });
+    Flight.findById(req.params.id, function(err, flight) {
+        res.render('flights/show', { flight })
+    })
   }
 
 function index(req, res) {
